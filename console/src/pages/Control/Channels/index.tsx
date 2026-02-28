@@ -32,6 +32,7 @@ function ChannelsPage() {
       "imessage",
       "discord",
       "qq",
+      "napcat",
     ];
 
     channelOrder.forEach((key) => {
