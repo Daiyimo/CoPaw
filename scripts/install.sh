@@ -99,7 +99,7 @@ ensure_uv() {
     done
 
     info "Installing uv..."
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    pip install uv -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
     # Source the env file uv's installer creates, or add common paths
     if [ -f "$HOME/.local/bin/env" ]; then
@@ -113,6 +113,9 @@ ensure_uv() {
 }
 
 ensure_uv
+
+# ── Mirror: Use Tsinghua PyPI mirror for uv pip installs ─────────────────────
+export UV_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 # ── Step 2: Create / update virtual environment ──────────────────────────────
 if [ -d "$COPAW_VENV" ]; then
