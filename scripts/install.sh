@@ -99,7 +99,10 @@ ensure_uv() {
     done
 
     info "Installing uv..."
-    pip install uv -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+    pip install uv --break-system-packages -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple \
+        || pip install uv -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple \
+        || pipx install uv \
+        || die "Failed to install uv. Please install manually: pip install uv --break-system-packages"
 
     # Source the env file uv's installer creates, or add common paths
     if [ -f "$HOME/.local/bin/env" ]; then
