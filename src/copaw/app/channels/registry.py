@@ -14,6 +14,7 @@ from .dingtalk import DingTalkChannel
 from .discord_ import DiscordChannel
 from .feishu import FeishuChannel
 from .imessage import IMessageChannel
+from .napcat import NapCatChannel
 from .qq import QQChannel
 
 if TYPE_CHECKING:
@@ -27,6 +28,7 @@ _BUILTIN: dict[str, type[BaseChannel]] = {
     "dingtalk": DingTalkChannel,
     "feishu": FeishuChannel,
     "qq": QQChannel,
+    "napcat": NapCatChannel,
     "console": ConsoleChannel,
 }
 

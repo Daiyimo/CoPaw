@@ -126,6 +126,93 @@ export function ChannelDrawer({
             </Form.Item>
           </>
         );
+      case "napcat":
+        return (
+          <>
+            <Form.Item name="ws_url" label="WS URL">
+              <Input placeholder="ws://localhost:3001" />
+            </Form.Item>
+            <Form.Item name="http_url" label="HTTP API URL">
+              <Input placeholder="http://localhost:3000" />
+            </Form.Item>
+            <Form.Item name="reverse_ws_port" label="Reverse WS Port">
+              <InputNumber
+                min={1}
+                max={65535}
+                placeholder="留空则不启用反向WS"
+                style={{ width: "100%" }}
+              />
+            </Form.Item>
+            <Form.Item name="access_token" label="Access Token">
+              <Input.Password placeholder="Optional" />
+            </Form.Item>
+            <Form.Item name="admins" label="Admins (QQ IDs, comma-separated)">
+              <Input placeholder="123456,789012" />
+            </Form.Item>
+            <Form.Item
+              name="require_mention"
+              label="Require @Mention (group)"
+              valuePropName="checked"
+            >
+              <Switch />
+            </Form.Item>
+            <Form.Item
+              name="allow_private"
+              label="Allow Private Messages"
+              valuePropName="checked"
+            >
+              <Switch />
+            </Form.Item>
+            <Form.Item
+              name="allowed_groups"
+              label="Allowed Groups (comma-separated)"
+            >
+              <Input placeholder="Leave empty to allow all groups" />
+            </Form.Item>
+            <Form.Item
+              name="blocked_users"
+              label="Blocked Users (comma-separated)"
+            >
+              <Input placeholder="QQ IDs to block" />
+            </Form.Item>
+            <Form.Item name="max_message_length" label="Max Message Length">
+              <InputNumber min={100} style={{ width: "100%" }} />
+            </Form.Item>
+            <Form.Item
+              name="format_markdown"
+              label="Format Markdown"
+              valuePropName="checked"
+            >
+              <Switch />
+            </Form.Item>
+            <Form.Item
+              name="anti_risk_mode"
+              label="Anti-Risk Mode"
+              valuePropName="checked"
+            >
+              <Switch />
+            </Form.Item>
+            <Form.Item name="rate_limit_ms" label="Rate Limit (ms)">
+              <InputNumber min={0} style={{ width: "100%" }} />
+            </Form.Item>
+            <Form.Item
+              name="auto_approve_requests"
+              label="Auto Approve Friend/Group Requests"
+              valuePropName="checked"
+            >
+              <Switch />
+            </Form.Item>
+            <Form.Item
+              name="keyword_triggers"
+              label="Keyword Triggers (comma-separated)"
+            >
+              <Input placeholder="Optional keywords to trigger bot" />
+            </Form.Item>
+            <Form.Item name="history_limit" label="History Limit">
+              <InputNumber min={0} style={{ width: "100%" }} />
+            </Form.Item>
+          </>
+        );
       default:
         return null;
     }

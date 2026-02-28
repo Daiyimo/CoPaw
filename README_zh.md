@@ -29,7 +29,7 @@
 
 > **核心能力：**
 >
-> **全域触达** — 钉钉、飞书、QQ、Discord、iMessage 等频道，一个 CoPaw 按需连接。
+> **全域触达** — 钉钉、飞书、QQ、NapCat（OneBot v11）、Discord、iMessage 等频道，一个 CoPaw 按需连接。
 >
 > **由你掌控** — 记忆与个性化由你掌控，本地或云端均可；定时与协作发往指定频道。
 >
@@ -82,7 +82,7 @@ copaw init --defaults
 copaw app
 ```
 
-在浏览器打开 **http://127.0.0.1:8088/** 即可使用控制台（与 CoPaw 对话、配置 Agent）。若要在钉钉、飞书、QQ 等 app 内对话，请在 [文档](https://copaw.agentscope.io/docs/channels) 中接入频道。
+在浏览器打开 **http://127.0.0.1:8088/** 即可使用控制台（与 CoPaw 对话、配置 Agent）。`copaw app` 默认绑定 `0.0.0.0:8088`，局域网内其他设备也可通过 `http://<本机IP>:8088/` 访问。若要在钉钉、飞书、QQ、NapCat 等 app 内对话，请在 [文档](https://copaw.agentscope.io/docs/channels) 中接入频道。
 
 ![Console](https://img.alicdn.com/imgextra/i4/O1CN01Q0kWkE1WlHCNXeUlb_!!6000000002828-2-tps-3822-2070.png)
 
@@ -165,7 +165,7 @@ docker pull agentscope/copaw:latest
 docker run -p 8088:8088 -v copaw-data:/app/working agentscope/copaw:latest
 ```
 
-然后在浏览器打开 **http://127.0.0.1:8088/** 进入控制台。配置、记忆与 Skills 保存在 `copaw-data` 卷中。如需传入 API Key（如 `DASHSCOPE_API_KEY`），在 `docker run` 时添加 `-e VAR=value` 或 `--env-file .env`。
+然后在浏览器打开 **http://127.0.0.1:8088/** 进入控制台。服务默认绑定 `0.0.0.0:8088`，局域网内其他设备可通过 `http://<本机IP>:8088/` 访问。配置、记忆与 Skills 保存在 `copaw-data` 卷中。如需传入 API Key（如 `DASHSCOPE_API_KEY`），在 `docker run` 时添加 `-e VAR=value` 或 `--env-file .env`。
 
 镜像从零构建。若需自行构建镜像，请参阅 [scripts/README.md](scripts/README.md#build-docker-image) 中的「Build Docker image」小节，构建后推送到你的镜像仓库。
 
@@ -219,7 +219,7 @@ copaw app # 启动服务
 | [项目介绍](https://copaw.agentscope.io/docs/intro)        | CoPaw 是什么、怎么用                 |
 | [快速开始](https://copaw.agentscope.io/docs/quickstart)   | 安装与运行（本地或魔搭创空间）       |
 | [控制台](https://copaw.agentscope.io/docs/console)        | Web 界面：对话与 Agent 配置          |
-| [频道配置](https://copaw.agentscope.io/docs/channels)     | 钉钉、飞书、QQ、Discord、iMessage 等 |
+| [频道配置](https://copaw.agentscope.io/docs/channels)     | 钉钉、飞书、QQ、NapCat（OneBot v11）、Discord、iMessage 等 |
 | [心跳](https://copaw.agentscope.io/docs/heartbeat)        | 定时自检与摘要                       |
 | [本地模型](https://copaw.agentscope.io/docs/local-models) | 使用 llama.cpp 或 MLX 本地运行模型   |
 | [CLI](https://copaw.agentscope.io/docs/cli)               | 初始化、定时任务、Skills、清理       |

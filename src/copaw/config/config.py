@@ -52,6 +52,28 @@ class QQConfig(BaseChannelConfig):
     client_secret: str = ""
 
 
+class NapCatConfig(BaseChannelConfig):
+    """NapCat / OneBot v11 channel config."""
+
+    ws_url: str = ""
+    http_url: str = ""
+    reverse_ws_port: Optional[int] = None
+    access_token: str = ""
+    admins: List[int] = []
+    require_mention: bool = True
+    enable_deduplication: bool = True
+    allow_private: bool = True
+    allowed_groups: List[int] = []
+    blocked_users: List[int] = []
+    max_message_length: int = 4000
+    format_markdown: bool = False
+    anti_risk_mode: bool = False
+    rate_limit_ms: int = 1000
+    auto_approve_requests: bool = False
+    keyword_triggers: List[str] = []
+    history_limit: int = 5
+
+
 class ConsoleConfig(BaseChannelConfig):
     """Console channel: prints agent responses to stdout."""
 
@@ -68,6 +90,7 @@ class ChannelConfig(BaseModel):
     dingtalk: DingTalkConfig = DingTalkConfig()
     feishu: FeishuConfig = FeishuConfig()
     qq: QQConfig = QQConfig()
+    napcat: NapCatConfig = NapCatConfig()
     console: ConsoleConfig = ConsoleConfig()
 
 
@@ -194,5 +217,6 @@ ChannelConfigUnion = Union[
     DingTalkConfig,
     FeishuConfig,
     QQConfig,
+    NapCatConfig,
     ConsoleConfig,
 ]

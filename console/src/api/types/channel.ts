@@ -32,6 +32,26 @@ export interface QQConfig extends BaseChannelConfig {
   client_secret: string;
 }
 
+export interface NapCatConfig extends BaseChannelConfig {
+  ws_url: string;
+  http_url: string;
+  reverse_ws_port: number | null;
+  access_token: string;
+  admins: number[];
+  require_mention: boolean;
+  enable_deduplication: boolean;
+  allow_private: boolean;
+  allowed_groups: number[];
+  blocked_users: number[];
+  max_message_length: number;
+  format_markdown: boolean;
+  anti_risk_mode: boolean;
+  rate_limit_ms: number;
+  auto_approve_requests: boolean;
+  keyword_triggers: string[];
+  history_limit: number;
+}
+
 export type ConsoleConfig = BaseChannelConfig;
 
 export interface ChannelConfig {
@@ -40,6 +60,7 @@ export interface ChannelConfig {
   dingtalk: DingTalkConfig;
   feishu: FeishuConfig;
   qq: QQConfig;
+  napcat: NapCatConfig;
   console: ConsoleConfig;
 }
 
@@ -49,4 +70,5 @@ export type SingleChannelConfig =
   | DingTalkConfig
   | FeishuConfig
   | QQConfig
+  | NapCatConfig
   | ConsoleConfig;

@@ -29,7 +29,7 @@ Your Personal AI Assistant; easy to install, deploy on your own machine or on th
 
 > **Core capabilities:**
 >
-> **Every channel** — DingTalk, Feishu, QQ, Discord, iMessage, and more. One assistant, connect as you need.
+> **Every channel** — DingTalk, Feishu, QQ, NapCat (OneBot v11), Discord, iMessage, and more. One assistant, connect as you need.
 >
 > **Under your control** — Memory and personalization under your control. Deploy locally or in the cloud; scheduled reminders to any channel.
 >
@@ -82,7 +82,7 @@ copaw init --defaults
 copaw app
 ```
 
-Then open **http://127.0.0.1:8088/** in your browser for the Console (chat with CoPaw, configure the agent). To talk in DingTalk, Feishu, QQ, etc., add a channel in the [docs](https://copaw.agentscope.io/docs/channels).
+Then open **http://127.0.0.1:8088/** in your browser for the Console (chat with CoPaw, configure the agent). By default `copaw app` binds to `0.0.0.0:8088`, so it is also accessible from other devices on your LAN at `http://<your-ip>:8088/`. To talk in DingTalk, Feishu, QQ, NapCat, etc., add a channel in the [docs](https://copaw.agentscope.io/docs/channels).
 
 ![Console](https://img.alicdn.com/imgextra/i4/O1CN01iuGyNc1mNwsUU5NQI_!!6000000004943-2-tps-3822-2070.png)
 
@@ -165,7 +165,7 @@ docker pull agentscope/copaw:latest
 docker run -p 8088:8088 -v copaw-data:/app/working agentscope/copaw:latest
 ```
 
-Then open **http://127.0.0.1:8088/** for the Console. Config, memory, and skills are stored in the `copaw-data` volume. To pass API keys (e.g. `DASHSCOPE_API_KEY`), add `-e VAR=value` or `--env-file .env` to `docker run`.
+Then open **http://127.0.0.1:8088/** for the Console. By default the server binds to `0.0.0.0:8088`, so it is also reachable from other LAN devices at `http://<your-ip>:8088/`. Config, memory, and skills are stored in the `copaw-data` volume. To pass API keys (e.g. `DASHSCOPE_API_KEY`), add `-e VAR=value` or `--env-file .env` to `docker run`.
 
 The image is built from scratch. To build the image yourself, please refer to the [Build Docker image](scripts/README.md#build-docker-image) section in `scripts/README.md`, and then push to your registry.
 
@@ -217,7 +217,7 @@ You can also download and manage local models from the Console UI.
 | [Introduction](https://copaw.agentscope.io/docs/intro)        | What CoPaw is and how you use it                  |
 | [Quick start](https://copaw.agentscope.io/docs/quickstart)    | Install and run (local or ModelScope Studio)      |
 | [Console](https://copaw.agentscope.io/docs/console)           | Web UI for chat and agent config                  |
-| [Channels](https://copaw.agentscope.io/docs/channels)         | DingTalk, Feishu, QQ, Discord, iMessage, and more |
+| [Channels](https://copaw.agentscope.io/docs/channels)         | DingTalk, Feishu, QQ, NapCat (OneBot v11), Discord, iMessage, and more |
 | [Heartbeat](https://copaw.agentscope.io/docs/heartbeat)       | Scheduled check-in or digest                      |
 | [Local Models](https://copaw.agentscope.io/docs/local-models) | Run models locally with llama.cpp or MLX          |
 | [CLI](https://copaw.agentscope.io/docs/cli)                   | Init, cron jobs, skills, clean                    |
